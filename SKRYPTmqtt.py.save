@@ -109,4 +109,16 @@ msg_props = pika.BasicProperties()
 msg_props.content_type = "text/plain"
 channel.basic_publish(exchange="data_exchange",properties=msg_props,routing_key="raspberry",body=msg)
 
+
+#przesylam do Przemyslawa
+conn_broker = pika.BlockingConnection(conn_params)
+channel = conn_broker.channel()
+
+msg = "".join(wiadomosc)msg_props = pika.BasicProperties()
+msg_props.content_type = "text/plain"
+
+
+conn_params_2 = pika.ConnectionParameters("136.244.101.115", credentials = credentials)
+channel.basic_publish(exchange="data_exchange",properties=msg_props,routing_key="raspberry",body=msg)
+
 conn_broker.close()

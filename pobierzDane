@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./czujnikInfo.py 11 4 &&  echo ",$(date +%d.%m.%Y)," && echo "$(date +%H:%M:%S)"
+

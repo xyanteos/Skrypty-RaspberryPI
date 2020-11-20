@@ -17,7 +17,7 @@ import time
 
 
 credentials = pika.PlainCredentials("client", "clientpass")
-conn_params = pika.ConnectionParameters("136.244.101.115", credentials = credentials)
+conn_params = pika.ConnectionParameters("83.8.31.15", credentials = credentials)
 conn_broker = pika.BlockingConnection(conn_params)
 channel = conn_broker.channel()
 
