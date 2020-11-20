@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
 #Importowanie potrzebnych bibliotek, pika - komunikacja miedzy Rasp a brokerem, subprocess - umozliwia pobranie danych wyjściowych innego skryptu
-import pika #,sys
+import pika
 import subprocess
 import time
 
 
-###Tutaj jest sposob na pobranie zmiennych podczas wywolania kodu
+###Tutaj jest przyklad sposobu na pobranie zmiennych podczas wywolania kodu
+###potrzebny jest import sys
 #sensor_args = { '11': Adafruit_DHT.DHT11,
 #                '22': Adafruit_DHT.DHT22,
 #                '2302': Adafruit_DHT.AM2302 }
@@ -39,32 +40,9 @@ while humidity>145:
 print("{Temp : " + str(temp) + ", Humid : " + str(humidity) + ", Date : " + date + ", Time : " + time+"}")
 wiadomosc = str("{\nTemp : '" + str(temp) + "',\nHumid : '" + str(humidity) + "',\nDate : '" + date + "',\nTime : '" + time+"'\n}")
 
-
-listaWynikow.append([temp,humidity])
-
-
-#time.sleep(5)
-
-
-###pobieram dane nr2
-#proc = subprocess.Popen('../pi/wyslijNaServer',stdout=subprocess.PIPE)
-#wiadomosc = str(proc.stdout.read())
-###wiadomosc1 = '{Temp:"'+wiadomosc[9:13] + '",Humidity:"' + wiadomosc[27:31]+ '",Date:"' + wiadomosc[44:54] + '",Time:"' + wiadomosc[68:76] +'"}'
-#temp = wiadomosc[9:13]
-#humidity = wiadomosc[27:31]
+###Tutaj mozna odkomentowac, zeby dodac elementy temperatury i wilgotnosci do listy celem ich ewentualnej weryfikacji dodatkowej
 #listaWynikow.append([temp,humidity])
-
-
-#time.sleep(5)
-
-
-###pobieram dane nr3
-#proc1=subprocess.Popen('../pi/wyslijNaServer',stdout=subprocess.PIPE)
-#wiadomoscPo = str(proc1.stdout.read())
-#temp = wiadomoscPo[9:13]
-#humidity = wiadomoscPo[27:31]
-#listaWynikow.append([temp,humidity])
-
+###!! UWAGA !!  zeby zbieranie danych i zapisywanie roznych wynikow do tablicy mialo miejsce konieczne jest skopiowanie powyzszego sposobu pobierania danych z urzadzenia oraz powtorzenie rozszerzania listy o nowe zmienne.
 
 ###sprawdzam w "brudny" sposob
 #print(listaWynikow)
@@ -95,8 +73,6 @@ listaWynikow.append([temp,humidity])
 #    sredniaHum = (tempHum[0]+tempHum[2])/2
 #else:
 #    sredniaHum=tempTemp[2]
-
-
 ###tworze wiadomosc koncowa
 #wiadomoscKoncowa = '{Temp:"'+str(sredniaTemp) + '",Humidity:"' + str(sredniaHum) + '",Date:"' + wiadomoscPo[44:54] + '",Time:"' + wiadomoscPo[68:76] +'"}'
 

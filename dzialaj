@@ -1,5 +1,0 @@
-#!/bin/bash
-while true 
-do
-	(($(date +%-S) % 60 == 0 )) && ./zbierzDane && echo "Zebralem dane!" && ./wyslijDane && echo "wyslalem dane!" && ../kacperszyszko/mqtt.py && echo "Dane poszly do broker-a!"
-done
