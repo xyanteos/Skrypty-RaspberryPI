@@ -1,4 +1,6 @@
 #!/bin/bash
-
+##Najpierw odpalany jest skrypt czujnikInfo odpowiedzialny za pobranie danych z czujnika podlaczonego do raspberry
+##Do tego skryptu przekazywane sa informacje odnosnie rodzaju czujnika i numerze portu pod ktory jest podlaczona linia data.
+##Do pobranych danych zostaja dodane informacje odnosnie daty (dnia, miesiaca i roku) oraz godziny (godzina, minuty, sekundy) pomiaru.
 ./czujnikInfo.py 11 4 &&  echo ",$(date +%d.%m.%Y)," && echo "$(date +%H:%M:%S)"
 

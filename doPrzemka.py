@@ -24,6 +24,7 @@ while humidity>145:
     time = wiadomoscPrzed1[28:36]
 #drukuje dane zebrane przez urzadzenie przed ich wyslaniem
 print("{Temp : " + str(temp) + ", Humid : " + str(humidity) + ", Date : " + date + ", Time : " + time+"}")
+#tworze formatke wiadomosci do przeslania do brokera
 wiadomosc = str("{\nTemp : '" + str(temp) + "',\nHumid : '" + str(humidity) + "',\nDate : '" + date + "',\nTime : '" + time+"'\n}")
 
 
@@ -34,5 +35,5 @@ msg = "".join(wiadomosc)
 msg_props = pika.BasicProperties()
 msg_props.content_type = "text/plain"
 channel.basic_publish(exchange="data_exchange",properties=msg_props,routing_key="raspberry",body=msg)
-
+#zamykam polaczenie z brokerem
 conn_broker.close()
