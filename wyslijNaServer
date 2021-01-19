@@ -7,5 +7,5 @@ do
 	#Na poczatu sprawdzany jest czas lokalny urządzenia. Modulo 30 pozwala na ocenienie czy minelo pol minuty w czasie lokalnym, jeśli tak, to wykonywana jest kolejna czesc skryptu
 	#wszystko co znajduje sie po znaczniku && zostanie wykonane jesli poprzedzajacy go skrypt wykona sie pomyslnie.
 	#wszystko co znajduje sie po znaczniku || wykona sie jesli poprzedzajacy go skrypt nie wykonal sie pomyslnie.
-	(($(date +%-S) % 30 == 0 )) && (./SKRYPTmqtt.py || "Blad w przesyle danych do Kacpra" && echo "Dane poszły do Kacpra") && (./doPrzemka.py || echo "Blad w przesyle danych do Przemka.")
+	(($(date +%-S) % 30 == 0 )) && (./SKRYPTmqtt.py || "Blad w przesyle danych do Kacpra" && echo "Dane poszły do Kacpra") && (./doPrzemka.py && echo "Dane poszły do Przemka." || echo "Blad w przesyle danych do Przemka.") && (./doProfesora.py && echo "Dane poszły do brokera wiadomosci Pana Profesora." || echo "Blad w przesyle danych do Pana Profesora.")
 done

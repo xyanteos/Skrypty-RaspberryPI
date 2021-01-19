@@ -37,7 +37,7 @@ while humidity>145:
     humidity = float(wiadomoscPrzed1[8:12])
     date = wiadomoscPrzed1[15:25]
     time = wiadomoscPrzed1[28:36]
-print("{Temp : " + str(temp) + ", Humid : " + str(humidity) + ", Date : " + date + ", Time : " + time+"}")
+#print("{Temp : " + str(temp) + ", Humid : " + str(humidity) + ", Date : " + date + ", Time : " + time+"}")
 wiadomosc = str("{\nTemp : '" + str(temp) + "',\nHumid : '" + str(humidity) + "',\nDate : '" + date + "',\nTime : '" + time+"'\n}")
 
 ###Tutaj mozna odkomentowac, zeby dodac elementy temperatury i wilgotnosci do listy celem ich ewentualnej weryfikacji dodatkowej

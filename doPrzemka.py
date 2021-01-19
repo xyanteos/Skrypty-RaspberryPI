@@ -6,7 +6,7 @@ import subprocess
 
 ##Ustalanie polaczenia z brokerem wiadomosci
 credentials = pika.PlainCredentials("client", "clientpass")
-conn_params = pika.ConnectionParameters("83.8.31.15", credentials = credentials)
+conn_params = pika.ConnectionParameters("83.8.52.121", credentials = credentials)
 conn_broker = pika.BlockingConnection(conn_params)
 channel = conn_broker.channel()
 
@@ -17,7 +17,7 @@ humidity = 255.00
 while humidity>145:
     proc0 = subprocess.Popen('./pobierzDane',stdout=subprocess.PIPE)
     wiadomoscPrzed1 = str(proc0.stdout.read())
-    #print(wiadomoscPrzed1)
+    #print(wiadomoscPrzed1[2:6])
     temp = float(wiadomoscPrzed1[2:6])
     humidity = float(wiadomoscPrzed1[8:12])
     date = wiadomoscPrzed1[15:25]
